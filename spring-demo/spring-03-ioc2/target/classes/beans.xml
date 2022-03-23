@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--    &lt;!&ndash;第一种方式:下标赋值&ndash;&gt;-->
+<!--    <bean id="user" class="com.yi.pojo.User">-->
+<!--        <constructor-arg index="0" value="熠"/>-->
+<!--    </bean>-->
+
+<!--    &lt;!&ndash;第二种方式:通过类型创建(不建议使用)&ndash;&gt;-->
+<!--    <bean id="user" class="com.yi.pojo.User">-->
+<!--        <constructor-arg type="java.lang.String" value="小熠"/>-->
+<!--    </bean>-->
+
+    <!--第三种方式:直接通过参数名来设置-->
+    <bean id="user" class="com.yi.pojo.User">
+        <constructor-arg name="name" value="顾小熠"/>
+    </bean>
+
+    <!--
+    id:bean的唯一标识符，也就是相当于我们学的对象名
+    class:bean对象所对应的会限定名:包名+类型
+    name:也是别名，而且name可以同时取多个别名
+    -->
+    <bean id="userT" class="com.yi.pojo.UserT" name="user2 u2,u3;u4">
+        <property name="name" value="熠熠熠"/>
+    </bean>
+
+    <!--别名:如果添加了别名,我们也可以使用别名获取到这个对象-->
+    <alias name="user" alias="userNew"/>
+
+
+
+</beans>
